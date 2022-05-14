@@ -1,0 +1,1 @@
+tensorflowjs_converter --input_format=keras C:\Users\ADMIN\OneDrive\Desktop\face-sentiment\Real_time_emotion_recognition\emotions_saved_models\emotions_trained_model.h5 C:\Users\ADMIN\OneDrive\Desktop\face-sentiment\Real_time_emotion_recognition\emotions_saved_models\tfjs_model
