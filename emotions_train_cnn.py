@@ -12,7 +12,7 @@ import numpy as np
 save_dir = os.path.join(os.getcwd(), 'emotions_saved_models')
 model_name = 'emotions_trained_model.h5'
 
-# カテゴリの指定
+
 root_dir = "./emotions_image/"
 directory = os.listdir(root_dir)
 categories = [f for f in directory if os.path.isdir(os.path.join(root_dir, f))]
@@ -22,10 +22,10 @@ num_classes = len(categories)
 batch_size = 256
 epochs = 100
 
-# データをロード --- (※1)
+
 x_train, x_test, y_train, y_test = np.load("./emotions_image/emotions_obj.npy", allow_pickle=True)
 
-#グレースケール画像をConvolutio2Dに入力するための次元操作
+
 train_newarray = (x_train.shape[0], x_train.shape[1], x_train.shape[1], 1)
 x_train = np.reshape(x_train, train_newarray)
 test_newarray = (x_test.shape[0], x_test.shape[1], x_test.shape[1], 1)
@@ -92,7 +92,7 @@ def plot_model_history(model_history):
     fig.savefig('plot_emotions.png')
     plt.show()
 
-# データを正規化する
+
 x_train = x_train.astype('float32')
 x_test = x_test.astype('float32')
 x_train /= 255
@@ -122,7 +122,7 @@ model_path = os.path.join(save_dir, model_name)
 model.save(model_path)
 print('Saved trained model at %s ' % model_path)
 
-# モデルを評価する --- (※5)
+
 score = model.evaluate(x_test, y_test)
 print('loss=', score[0])
 print('accuracy=', score[1])
